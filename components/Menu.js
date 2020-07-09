@@ -65,7 +65,7 @@ function menuMaker(array) {
 const header = document.querySelector('.header')
 header.appendChild(menuMaker(menuItems));
 
-  // console.log('this is working');   //THIS IS ALSO A TESTER. DELETE WHEN DONE
+  // console.log('this is working');   //THIS IS A TESTER. DELETE WHEN DONE
 
 
 
@@ -74,25 +74,3 @@ header.appendChild(menuMaker(menuItems));
 
 
 
-
-  /*  
-  const students = document.createElement('li');
-  // students.textContent = menuArray;
-  uList.appendChild(students);
-
-  const faculty = document.createElement('li');
-  uList.appendChild(faculty);
-
-  const whatsNew = document.createElement('li');
-  uList.appendChild(whatsNew);
-
-  const techTrends = document.createElement('li');
-  uList.appendChild(techTrends);
-
-  const music = document.createElement('li');
-  uList.appendChild(music);
-
-  const logOut = document.createElement('li');
-  uList.appendChild(logOut);
-
-*/
