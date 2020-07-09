@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title:  'The Journey into Web Dev',
+    date: 'July 8th, 2020',
+    firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales neque sodales ut etiam. Proin fermentum leo vel orci porta. A pellentesque sit amet porttitor eget dolor morbi non. Est ultricies integer quis auctor elit sed vulputate mi. Ut consequat semper viverra nam libero justo laoreet sit amet. Consectetur a erat nam at lectus urna duis. Odio facilisis mauris sit amet massa vitae tortor. Et magnis dis parturient montes nascetur ridiculus mus. Vel eros donec ac odio tempor orci dapibus ultrices in. Tristique nulla aliquet enim tortor.`,
+    secondParagraph:  `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Odio tempor orci dapibus ultrices in iaculis nunc. Convallis convallis tellus id interdum. Quis enim lobortis scelerisque fermentum dui. Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Eget est lorem ipsum dolor sit. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. In iaculis nunc sed augue lacus viverra. Velit euismod in pellentesque massa. Non curabitur gravida arcu ac tortor dignissim. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Orci eu lobortis elementum nibh tellus molestie.`,
+    thirdParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas sed enim. Consectetur a erat nam at lectus urna duis. Adipiscing commodo elit at imperdiet dui. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Est ultricies integer quis auctor elit sed. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Arcu odio ut sem nulla pharetra diam sit amet. Elementum nisi quis eleifend quam adipiscing. Nisi lacus sed viverra tellus in hac habitasse platea dictumst. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Auctor augue mauris augue neque gravida. In iaculis nunc sed augue lacus viverra vitae. In eu mi bibendum neque egestas congue. Id venenatis a condimentum vitae sapien pellentesque. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Mauris pharetra et ultrices neque ornare aenean. Vehicula ipsum a arcu cursus vitae congue. Eu scelerisque felis imperdiet proin fermentum leo vel.`
   }
 ];
 
@@ -111,3 +118,51 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(dataObject) {
+
+  const article = document.createElement('div');
+  article.className = 'article';
+
+  const title = document.createElement('h2');
+  title.textContent = dataObject.title;
+  article.appendChild(title);
+
+  const date = document.createElement('p');
+  date.className = 'date';
+  date.date = dataObject.date;
+  article.appendChild(date);
+
+  const firstParagraph = document.createElement('p');
+  firstParagraph.className = 'firstParagraph';
+  firstParagraph.textContent = dataObject.firstParagraph;
+  article.appendChild(firstParagraph);
+
+  const secondParagraph = document.createElement('p');
+  secondParagraph.className = 'secondParagraph';
+  secondParagraph.textContent = dataObject.secondParagraph;
+  article.appendChild(secondParagraph);
+
+  const thirdParagraph = document.createElement('p');
+  thirdParagraph.className = 'thirdParagraph';
+  thirdParagraph.textContent = dataObject.thirdParagraph;
+  article.appendChild(thirdParagraph);
+
+  const expandButton = document.createElement('span');
+  expandButton.className = 'expandButton';
+  expandButton.textContent = '👆 Click here to read. 👆';
+  article.appendChild(expandButton);
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+}
+
+const articles = document.querySelector('.articles');
+
+data.forEach(object => {
+  const newArticle = articleMaker(object);
+  articles.appendChild(newArticle);
+});
+
