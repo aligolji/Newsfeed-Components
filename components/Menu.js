@@ -42,14 +42,15 @@ function menuMaker(array) {
   const uList = document.createElement('ul');
   menu.appendChild(uList);
 
-  const listItem = menuItems.map((arrayItem) => {
+  array.map((arrayItem) => {
     let newListItem = document.createElement('li');
       newListItem.textContent = arrayItem;
     console.log(newListItem);
+    uList.appendChild(newListItem)
     return newListItem;
   });
 
-  console.log(listItem);
+  // console.log(listItem);
   // uList.appendChild()
   // uList.appendChild(listItem);
 
@@ -62,8 +63,7 @@ function menuMaker(array) {
 }
 
 
-const header = document.querySelector('.header')
-header.appendChild(menuMaker(menuItems));
+document.body.appendChild(menuMaker(menuItems));
 
   // console.log('this is working');   //THIS IS A TESTER. DELETE WHEN DONE
 
