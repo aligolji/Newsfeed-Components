@@ -34,7 +34,7 @@ let menuItems = [
 
 
 
-function menuMaker(menuArray) {
+function menuMaker(array) {
 
   const menu = document.createElement('div');
   menu.className = 'menu';
@@ -42,14 +42,40 @@ function menuMaker(menuArray) {
   const uList = document.createElement('ul');
   menu.appendChild(uList);
 
-  // menuItems.forEach(() => {
-  //   let newListItem = document.createElement('li');
-  // });
+  const listItem = menuItems.map((arrayItem) => {
+    let newListItem = document.createElement('li');
+      newListItem.textContent = arrayItem;
+    console.log(newListItem);
+    return newListItem;
+  });
 
-  
+  console.log(listItem);
+  // uList.appendChild()
+  // uList.appendChild(listItem);
 
-  // uList.appendChild(newListItem);
+  const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('menu--open');
+  });
 
+  return menu;
+}
+
+
+const header = document.querySelector('.header')
+header.appendChild(menuMaker(menuItems));
+
+  // console.log('this is working');   //THIS IS ALSO A TESTER. DELETE WHEN DONE
+
+
+
+
+
+
+
+
+
+  /*  
   const students = document.createElement('li');
   // students.textContent = menuArray;
   uList.appendChild(students);
@@ -69,16 +95,4 @@ function menuMaker(menuArray) {
   const logOut = document.createElement('li');
   uList.appendChild(logOut);
 
-  const menuButton = document.querySelector('.menu-button');
-  menuButton.addEventListener('click', () => {
-    menu.classList.toggle('menu--open');
-  });
-
-  return menu;
-}
-
-console.log(menuMaker(menuItems));
-const header = document.querySelector('.header')
-header.appendChild(menuMaker(menuItems));
-
-  console.log('this is working');
+*/
